@@ -33,16 +33,33 @@ def searchEntry():
 #     addingEntry()
 # searchEntry()
 ## Challenge 114
+# file = open('Books.csv', 'r')
+# temp = []
+# reader = csv.reader(file)
+# start = int(input('Please select a starting year: '))
+# end = int(input('Please select an ending year: '))
+
+# temp = list(reader)
+# x = 0
+# for item in temp:
+#     if int(temp[x][2]) >= start and int(temp[x][2]) <= end:
+#         print(temp[x])
+#         x = x+1
+# file.close()
+## Challenge 115
+# file = open('Books.csv', 'r')
+# reader = csv.reader(file)
+# x = 0
+# for row in file:
+#     print('Row ' + str(x) + ' ' + str(row))
+#     x += 1
+# Challenge 116
 file = open('Books.csv', 'r')
 temp = []
 reader = csv.reader(file)
-start = int(input('Please select a starting year: '))
-end = int(input('Please select an ending year: '))
-
 temp = list(reader)
 x = 0
-for item in temp:
-    if int(temp[x][2]) >= start and int(temp[x][2]) <= end:
-        print(temp[x])
-        x = x+1
-file.close()
+for row in file:
+    print('Row ' + str(x) + ' ' + str(row))
+    x += 1
+# print(temp)
