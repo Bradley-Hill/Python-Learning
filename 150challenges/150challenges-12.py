@@ -54,12 +54,39 @@ def searchEntry():
 #     print('Row ' + str(x) + ' ' + str(row))
 #     x += 1
 # Challenge 116
-file = open('Books.csv', 'r')
-temp = []
-reader = csv.reader(file)
-temp = list(reader)
-x = 0
+file = list(csv.reader(open('Books.csv')))
+Booklist = []
 for row in file:
-    print('Row ' + str(x) + ' ' + str(row))
-    x += 1
-# print(temp)
+    Booklist.append(row)
+    
+x = 0
+for row in Booklist:
+    display = x,Booklist[x]
+    print(display)
+    x = x + 1
+getrid = int(input('Enter a row number to be deleted: '))
+del Booklist[getrid]
+
+x = 0
+for row in Booklist:
+    display = x,Booklist[x]
+    print(display)
+    x = x+1
+alter = int(input('Enter a row number to alter: '))
+x = 0
+for row in Booklist[alter]:
+    display = x,Booklist[alter][x]
+    print(display)
+    x = x+1
+part = int(input('Which part of the row do you wish to change?: '))
+newdata = input('What do you want to replace it with?: ')
+Booklist[alter][part] = newdata
+print(Booklist[alter])
+
+file = open('Books.csv', 'w')
+x=0
+for row in Booklist:
+    newrecord = Booklist[x][0]+',' + Booklist[x][1] + ',' + Booklist[x][2] + '\n'
+    file.write(newrecord)
+    x = x+1
+file.close
