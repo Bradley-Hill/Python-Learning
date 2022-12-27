@@ -1,4 +1,4 @@
-import random
+# import random
 
 # Challenge 118
 # def UserNumber():
@@ -53,50 +53,51 @@ import random
 #     verifyGuess(compNum,guess)
 
 # main()
-# Challenge 120
-def addition():
-    number1 = random.randint(5, 20)
-    number2 = random.randint(5, 20)
-    print(str(number1) + "+" + str(number2) + "= ??")
-    userAnswer = int((input("Please enter the sum here: ")))
-    correctAnswer = number1 + number2
-    answers = userAnswer, correctAnswer
-    return answers
+# # Challenge 120
+# def addition():
+#     number1 = random.randint(5, 20)
+#     number2 = random.randint(5, 20)
+#     print(str(number1) + "+" + str(number2) + "= ??")
+#     userAnswer = int((input("Please enter the sum here: ")))
+#     correctAnswer = number1 + number2
+#     answers = userAnswer, correctAnswer
+#     return answers
 
 
-def subtraction():
-    num1 = random.randint(25, 50)
-    num2 = random.randint(1, 25)
-    print(str(num1) + "-" + str(num2) + "= ??")
-    userAnswer = int((input("Please enter the solution here: ")))
-    correctAnswer = num1 + num2
-    answers = userAnswer, correctAnswer
-    return answers
+# def subtraction():
+#     num1 = random.randint(25, 50)
+#     num2 = random.randint(1, 25)
+#     print(str(num1) + "-" + str(num2) + "= ??")
+#     userAnswer = int((input("Please enter the solution here: ")))
+#     correctAnswer = num1 + num2
+#     answers = userAnswer, correctAnswer
+#     return answers
 
 
-def solutionVerify(userAnswer, correctAnswer):
-    if userAnswer == correctAnswer:
-        print("Correct! Well done.")
-    else:
-        print("Incorrect, the correct answer is: " + str(correctAnswer))
+# def solutionVerify(userAnswer, correctAnswer):
+#     if userAnswer == correctAnswer:
+#         print("Correct! Well done.")
+#     else:
+#         print("Incorrect, the correct answer is: " + str(correctAnswer))
 
 
-def main():
-    print(
-        """ 
-      1) Addition
-      2) Subtraction
-      """
-    )
-    optionChoice = int(input("Please select 1 or 2: "))
-    if optionChoice == 1:
-        userAnswer, correctAnswer = addition()
-        solutionVerify(userAnswer, correctAnswer)
-    elif optionChoice == 2:
-        userAnswer, correctAnswer = subtraction()
-        solutionVerify(userAnswer, correctAnswer)
-    else:
-        print("Incorrection selection")
+# def main():
+#     print(
+#         """
+#       1) Addition
+#       2) Subtraction
+#       """
+#     )
+#     optionChoice = int(input("Please select 1 or 2: "))
+#     if optionChoice == 1:
+#         userAnswer, correctAnswer = addition()
+#         solutionVerify(userAnswer, correctAnswer)
+#     elif optionChoice == 2:
+#         userAnswer, correctAnswer = subtraction()
+#         solutionVerify(userAnswer, correctAnswer)
+#     else:
+#         print("Incorrection selection")
 
 
-main()
+# main()
+# Challenge 121
