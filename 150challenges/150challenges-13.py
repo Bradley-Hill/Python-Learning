@@ -101,3 +101,59 @@
 
 # main()
 # Challenge 121
+nameList = []
+
+
+def add_name():
+    new_name = input("Please enter a name to add to the list: ")
+    nameList.append(new_name)
+
+
+def change_name():
+    for index, i in enumerate(nameList):
+        print(index, i)
+    index_change = int(input("Select which item in the list you wish to change: "))
+    chosen_change = input("What would you like the new entry to be: ")
+    nameList[index_change] = chosen_change
+
+
+def delete_name():
+    for index, i in enumerate(nameList):
+        print(index, i)
+    index_delete = int(input("Select which item in the list you wish to delete: "))
+    del nameList[index_delete]
+
+
+def view_names():
+    for item in nameList:
+        print(item)
+
+
+def main():
+    again = True
+    while again == True:
+        print(
+            """
+            1) Add a Name
+            2)Change a Name
+            3)Delete a Name
+            4)View names
+            5)End program
+            """
+        )
+        selection = int(input("Please enter your choice: "))
+        if selection == 1:
+            add_name()
+        elif selection == 2:
+            change_name()
+        elif selection == 3:
+            delete_name()
+        elif selection == 4:
+            view_names()
+        elif selection == 5:
+            break
+        else:
+            print("Please enter a valid selection.")
+
+
+main()
