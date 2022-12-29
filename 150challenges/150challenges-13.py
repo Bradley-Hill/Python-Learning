@@ -1,4 +1,5 @@
-# import random
+import random
+import csv
 
 # Challenge 118
 # def UserNumber():
@@ -101,32 +102,137 @@
 
 # main()
 # Challenge 121
-nameList = []
+# nameList = []
 
 
-def add_name():
-    new_name = input("Please enter a name to add to the list: ")
-    nameList.append(new_name)
+# def add_name():
+#     new_name = input("Please enter a name to add to the list: ")
+#     nameList.append(new_name)
 
 
-def change_name():
-    for index, i in enumerate(nameList):
-        print(index, i)
-    index_change = int(input("Select which item in the list you wish to change: "))
-    chosen_change = input("What would you like the new entry to be: ")
-    nameList[index_change] = chosen_change
+# def change_name():
+#     for index, i in enumerate(nameList):
+#         print(index, i)
+#     index_change = int(input("Select which item in the list you wish to change: "))
+#     chosen_change = input("What would you like the new entry to be: ")
+#     nameList[index_change] = chosen_change
 
 
-def delete_name():
-    for index, i in enumerate(nameList):
-        print(index, i)
-    index_delete = int(input("Select which item in the list you wish to delete: "))
-    del nameList[index_delete]
+# def delete_name():
+#     for index, i in enumerate(nameList):
+#         print(index, i)
+#     index_delete = int(input("Select which item in the list you wish to delete: "))
+#     del nameList[index_delete]
 
 
-def view_names():
-    for item in nameList:
-        print(item)
+# def view_names():
+#     for item in nameList:
+#         print(item)
+
+
+# def main():
+#     again = True
+#     while again == True:
+#         print(
+#             """
+#             1) Add a Name
+#             2)Change a Name
+#             3)Delete a Name
+#             4)View names
+#             5)End program
+#             """
+#         )
+#         selection = int(input("Please enter your choice: "))
+#         if selection == 1:
+#             add_name()
+#         elif selection == 2:
+#             change_name()
+#         elif selection == 3:
+#             delete_name()
+#         elif selection == 4:
+#             view_names()
+#         elif selection == 5:
+#             break
+#         else:
+#             print("Please enter a valid selection.")
+
+
+# main()
+# # Challenge 122
+# def displaySalaries():
+#     file = open("Salaries.csv", "r")
+#     for row in file:
+#         print(row)
+#     file.close()
+
+
+# def addingEntry():
+#     """Adds an entry to Books.csv file"""
+#     file = open("Salaries.csv", "a")
+#     name = input("Enter the name: ")
+#     salaries = input("Enter the salary: ")
+#     newEntry = name + "," + salaries + "\n"
+#     file.write(str(newEntry))
+#     file.close()
+
+
+# def main():
+#     again = True
+#     while again == True:
+#         print(
+#             """
+#             1) Add to file
+#             2) View all records
+#             3) Quit Program
+#             """
+#         )
+#         selection = int(input("Please enter your selection: "))
+#         if selection == 1:
+#             addingEntry()
+#         elif selection == 2:
+#             displaySalaries()
+#         elif selection == 3:
+#             break
+#         else:
+#             print("Please enter a valid selection.")
+
+
+# main()
+# Challenge 123
+def display_salaries():
+    file = open("Salaries.csv", "r")
+    for row in file:
+        print(row)
+
+
+def delete_record():
+    file = list(csv.reader(open("Salaries.csv")))
+    tempList = []
+    for row in file:
+        tempList.append(row)
+
+    x = 0
+    for row in tempList:
+        display = x, tempList[x]
+        print(display)
+        x = x + 1
+    getrid = int(input("Enter a row number to be deleted: "))
+    del tempList[getrid]
+    file = open("Salaries.csv", "w")
+    with file:
+        write = csv.writer(file)
+        write.writerows(tempList)
+        file.close()
+
+
+def adding_entry():
+    """Adds an entry to Salaries.csv file"""
+    file = open("Salaries.csv", "a")
+    name = input("Enter the name: ")
+    salaries = input("Enter the salary: ")
+    newEntry = name + "," + salaries + "\n"
+    file.write(str(newEntry))
+    file.close()
 
 
 def main():
@@ -134,23 +240,20 @@ def main():
     while again == True:
         print(
             """
-            1) Add a Name
-            2)Change a Name
-            3)Delete a Name
-            4)View names
-            5)End program
+            1) Add to file
+            2) View all records
+            3) Delete a record
+            4) Quit Program
             """
         )
-        selection = int(input("Please enter your choice: "))
+        selection = int(input("Please enter your selection: "))
         if selection == 1:
-            add_name()
+            adding_entry()
         elif selection == 2:
-            change_name()
+            display_salaries()
         elif selection == 3:
-            delete_name()
+            delete_record()
         elif selection == 4:
-            view_names()
-        elif selection == 5:
             break
         else:
             print("Please enter a valid selection.")
