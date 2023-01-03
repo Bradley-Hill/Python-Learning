@@ -68,83 +68,55 @@ import random
 # answer.pack(padx=30, pady=30)
 
 # root.mainloop()
-# Challenge 126
-# def Add():
-#     num = entry_box.get()
-#     num = int(num)
-#     output_txt = total
-#     answer = output_txt
-#     answer = int(answer)
-#     total = num + answer
+# # Challenge 126
 
 
-# def reset():
-#     total = 0
-#     output_txt = 0
-#     entry_box.delete("1.0", tk.END)
+# class MyGui:
+#     def __init__(self) -> None:
+
+#         self.runningTotal = 0
+
+#         self.root = tk.Tk()
+
+#         self.root.geometry("500x500")
+#         self.root.title("Adding numbers")
+
+#         self.label = tk.Label(
+#             self.root, text="Enter a number to add.", font=("Arial", 18)
+#         )
+#         self.label.pack(padx=20, pady=20)
+
+#         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+#         self.textbox.pack(padx=20, pady=20)
+
+#         self.button1 = tk.Button(
+#             self.root, text="Add a number", font=("Arial", 14), command=self.Addition
+#         )
+#         self.button1.pack(padx=10, pady=10)
+#         self.button2 = tk.Button(
+#             self.root, text="Reset count.", font=("Arial", 14), command=self.Reset
+#         )
+#         self.button2.pack(padx=10, pady=10)
+
+#         self.running_total = tk.Label(
+#             self.root, text=str(self.runningTotal), font=("Arial", 24)
+#         )
+#         self.running_total.pack(padx=25, pady=25)
+
+#         self.root.mainloop()
+
+#     def Addition(self):
+#         num = self.textbox.get("1.0", "end-1c")
+#         num = int(num)
+#         self.runningTotal += num
+#         self.running_total.config(text=str(self.runningTotal))
+#         print(self.runningTotal)
+
+#     def Reset(self):
+#         self.runningTotal = 0
+#         self.running_total.config(text=str(self.runningTotal))
 
 
-class MyGui:
-    def __init__(self) -> None:
+# MyGui()
 
-        self.root = tk.Tk()
-
-        self.root.geometry("500x500")
-        self.root.title("Adding numbers")
-
-        self.label = tk.Label(
-            self.root, text="Enter a number to add.", font=("Arial", 18)
-        )
-        self.label.pack(padx=20, pady=20)
-
-        self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
-        self.textbox.pack(padx=20, pady=20)
-
-        self.button1 = tk.Button(
-            self.root, text="Add a number", font=("Arial", 14), command=self.Addition
-        )
-        self.button1.pack(padx=10, pady=10)
-        self.button2 = tk.Button(
-            self.root, text="Reset count.", font=("Arial", 14), command=self.Reset
-        )
-        self.button2.pack(padx=10, pady=10)
-
-        self.messagebox = tk.Message(
-            self.root, text="", font=("Arial", 18), fg="blue", bg="white"
-        )
-        self.messagebox.pack(padx=35, pady=35)
-
-        self.root.mainloop()
-
-    def Addition(self):
-        num = self.textbox.get("1.0", "end-1c")
-        num = int(num)
-
-    def Reset(self):
-        print("poop")
-
-
-MyGui()
-
-
-# root = tk.Tk()
-
-# root.geometry("500x500")
-# root.title("Adding together")
-
-# entry_box = tk.Entry(
-#     root,
-#     textvariable="",
-# )
-# entry_box.pack(padx=20, pady=20)
-
-# button1 = tk.Button(root, text="Add the number to the total", command=Add)
-# button1.pack(padx=20, pady=20)
-
-# button2 = tk.Button(root, text="Reset", command=reset)
-# button2.pack(padx=20, pady=20)
-
-# output_txt = tk.Message(root, text="")
-# output_txt.pack(padx=30, pady=30)
-
-# root.mainloop()
+# Challenge 127
