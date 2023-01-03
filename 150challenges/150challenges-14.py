@@ -119,4 +119,100 @@ import random
 
 # MyGui()
 
-# Challenge 127
+# # Challenge 127
+
+
+# class MyGui:
+#     def __init__(self) -> None:
+
+#         self.list = ""
+
+#         self.root = tk.Tk()
+
+#         self.root.geometry("500x500")
+#         self.root.title("Adding names")
+
+#         self.label = tk.Label(
+#             self.root, text="Enter a name to add.", font=("Arial", 18)
+#         )
+#         self.label.pack(padx=20, pady=20)
+
+#         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+#         self.textbox.pack(padx=20, pady=20)
+
+#         self.button1 = tk.Button(
+#             self.root, text="Add a name", font=("Arial", 14), command=self.Addition
+#         )
+#         self.button1.pack(padx=10, pady=10)
+#         self.button2 = tk.Button(
+#             self.root, text="Reset list.", font=("Arial", 14), command=self.Reset
+#         )
+#         self.button2.pack(padx=10, pady=10)
+
+#         self.running_total = tk.Label(
+#             self.root, text=str(self.list), font=("Arial", 24)
+#         )
+#         self.running_total.pack(padx=25, pady=25)
+
+#         self.root.mainloop()
+
+#     def Addition(self):
+#         name = self.textbox.get("1.0", "end-1c")
+#         name = str(name) + "\n"
+#         self.list += name
+#         self.running_total.config(text=str(self.list))
+#         print(self.list)
+
+#     def Reset(self):
+#         self.list = ""
+#         self.running_total.config(text=str(self.list))
+
+
+# MyGui()
+
+# Challenge 128
+class MyGui:
+    def __init__(self) -> None:
+
+        self.conversion = 0
+
+        self.root = tk.Tk()
+
+        self.root.geometry("500x500")
+        self.root.title("Converting between Miles and Kilometres")
+
+        self.label = tk.Label(
+            self.root, text="Enter a number to add.", font=("Arial", 18)
+        )
+        self.label.pack(padx=20, pady=20)
+
+        self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+        self.textbox.pack(padx=20, pady=20)
+
+        self.button1 = tk.Button(
+            self.root,
+            text="Convert to Kms",
+            font=("Arial", 14),
+            command=self.Kilometres,
+        )
+        self.button1.pack(padx=10, pady=10)
+        self.button2 = tk.Button(
+            self.root, text="Convert to Miles.", font=("Arial", 14), command=self.Miles
+        )
+        self.button2.pack(padx=10, pady=10)
+
+        self.output = tk.Label(self.root, text=str(self.conversion), font=("Arial", 24))
+        self.output.pack(padx=25, pady=25)
+
+        self.root.mainloop()
+
+    def Kilometres(self):
+        num = self.textbox.get("1.0", "end-1c")
+        pass
+
+    def Miles(self):
+        num = self.textbox.get("1.0", "end-1c")
+        pass
+
+
+MyGui()
