@@ -232,10 +232,10 @@ class MyGui:
     def __init__(self) -> None:
 
         self.root = tk.Tk()
-        self.list = ""
+        self.list = "\n"
 
         self.root.geometry("500x500")
-        self.root.title("Converting between Miles and Kilometres")
+        self.root.title("Adding whole numbers to a list")
 
         self.label = tk.Label(self.root, text="Enter a number", font=("Arial", 18))
         self.label.pack(padx=20, pady=20)
@@ -263,13 +263,17 @@ class MyGui:
     def number_check(self):
         num = self.textbox.get("1.0", "end-1c")
         if num.isdigit():
-            self.output.config(text=str(num))
+            num = str(num)
+            self.list += num + "\n"
+            self.output.config(text=str(self.list))
+            self.textbox.delete("1.0", "end")
         else:
-            self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+            self.textbox.delete("1.0", "end")
 
     def clear_list(self):
         self.list = ""
-        pass
+        self.output.config(text=str(self.list))
+        self.textbox.delete("1.0", "end")
 
 
 MyGui()
