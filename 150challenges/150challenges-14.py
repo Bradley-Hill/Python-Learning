@@ -182,7 +182,11 @@ class MyGui:
         self.root.title("Converting between Miles and Kilometres")
 
         self.label = tk.Label(
-            self.root, text="Enter a number to add.", font=("Arial", 18)
+            self.root,
+            text="""Enter a number to convert, either 
+            Miles to Kilometres, 
+            or Kilomtres to Miles.""",
+            font=("Arial", 18),
         )
         self.label.pack(padx=20, pady=20)
 
