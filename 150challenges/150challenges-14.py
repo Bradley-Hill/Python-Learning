@@ -170,24 +170,74 @@ import random
 
 # MyGui()
 
-# Challenge 128
+## Challenge 128
+# class MyGui:
+#     def __init__(self) -> None:
+
+#         self.conversion = 0
+
+#         self.root = tk.Tk()
+
+#         self.root.geometry("500x500")
+#         self.root.title("Converting between Miles and Kilometres")
+
+#         self.label = tk.Label(
+#             self.root,
+#             text="""Enter a number to convert, either
+#             Miles to Kilometres,
+#             or Kilomtres to Miles.""",
+#             font=("Arial", 18),
+#         )
+#         self.label.pack(padx=20, pady=20)
+
+#         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+#         self.textbox.pack(padx=20, pady=20)
+
+#         self.button1 = tk.Button(
+#             self.root,
+#             text="Convert to Kms",
+#             font=("Arial", 14),
+#             command=self.Kilometres,
+#         )
+#         self.button1.pack(padx=10, pady=10)
+#         self.button2 = tk.Button(
+#             self.root, text="Convert to Miles.", font=("Arial", 14), command=self.Miles
+#         )
+#         self.button2.pack(padx=10, pady=10)
+
+#         self.output = tk.Label(self.root, text=str(self.conversion), font=("Arial", 24))
+#         self.output.pack(padx=25, pady=25)
+
+#         self.root.mainloop()
+
+#     def Kilometres(self):
+#         num = self.textbox.get("1.0", "end-1c")
+#         num = float(num)
+#         num = num * 0.6214
+#         self.output.config(text=str(num) + " Km")
+
+#     def Miles(self):
+#         num = self.textbox.get("1.0", "end-1c")
+#         num = float(num)
+#         num = num * 1.6093
+#         self.output.config(text=str(num) + " Miles")
+
+
+# MyGui()
+
+# Challenge 129
+
+
 class MyGui:
     def __init__(self) -> None:
 
-        self.conversion = 0
-
         self.root = tk.Tk()
+        self.list = ""
 
         self.root.geometry("500x500")
         self.root.title("Converting between Miles and Kilometres")
 
-        self.label = tk.Label(
-            self.root,
-            text="""Enter a number to convert, either 
-            Miles to Kilometres, 
-            or Kilomtres to Miles.""",
-            font=("Arial", 18),
-        )
+        self.label = tk.Label(self.root, text="Enter a number", font=("Arial", 18))
         self.label.pack(padx=20, pady=20)
 
         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
@@ -195,27 +245,30 @@ class MyGui:
 
         self.button1 = tk.Button(
             self.root,
-            text="Convert to Kms",
+            text="Check to verify",
             font=("Arial", 14),
-            command=self.Kilometres,
+            command=self.number_check,
         )
         self.button1.pack(padx=10, pady=10)
         self.button2 = tk.Button(
-            self.root, text="Convert to Miles.", font=("Arial", 14), command=self.Miles
+            self.root, text="Clear List", font=("Arial", 14), command=self.clear_list
         )
         self.button2.pack(padx=10, pady=10)
 
-        self.output = tk.Label(self.root, text=str(self.conversion), font=("Arial", 24))
+        self.output = tk.Label(self.root, text=str(self.list), font=("Arial", 24))
         self.output.pack(padx=25, pady=25)
 
         self.root.mainloop()
 
-    def Kilometres(self):
+    def number_check(self):
         num = self.textbox.get("1.0", "end-1c")
-        pass
+        if num.isdigit():
+            self.output.config(text=str(num))
+        else:
+            self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
 
-    def Miles(self):
-        num = self.textbox.get("1.0", "end-1c")
+    def clear_list(self):
+        self.list = ""
         pass
 
 
