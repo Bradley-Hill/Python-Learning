@@ -464,7 +464,6 @@ class MyGui:
             reader = csv.reader(csv_file)
             for row in reader:
                 self.listbox.insert("end", row)
-        pass
 
 
 MyGui()
