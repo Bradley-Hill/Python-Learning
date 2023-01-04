@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
+import csv
 
 ## Challenge 124
 # class MyGUI:
@@ -225,55 +226,171 @@ import random
 
 # MyGui()
 
-# Challenge 129
+# # Challenge 129
+
+
+# class MyGui:
+#     def __init__(self) -> None:
+
+#         self.root = tk.Tk()
+#         self.list = "\n"
+
+#         self.root.geometry("500x500")
+#         self.root.title("Adding whole numbers to a list")
+
+#         self.label = tk.Label(self.root, text="Enter a number", font=("Arial", 18))
+#         self.label.pack(padx=20, pady=20)
+
+#         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+#         self.textbox.pack(padx=20, pady=20)
+
+#         self.button1 = tk.Button(
+#             self.root,
+#             text="Check to verify",
+#             font=("Arial", 14),
+#             command=self.number_check,
+#         )
+#         self.button1.pack(padx=10, pady=10)
+#         self.button2 = tk.Button(
+#             self.root, text="Clear List", font=("Arial", 14), command=self.clear_list
+#         )
+#         self.button2.pack(padx=10, pady=10)
+
+#         self.output = tk.Label(self.root, text=str(self.list), font=("Arial", 24))
+#         self.output.pack(padx=25, pady=25)
+
+#         self.root.mainloop()
+
+#     def number_check(self):
+#         num = self.textbox.get("1.0", "end-1c")
+#         if num.isdigit():
+#             num = str(num)
+#             self.list += num + "\n"
+#             self.output.config(text=str(self.list))
+#             self.textbox.delete("1.0", "end")
+#         else:
+#             self.textbox.delete("1.0", "end")
+
+#     def clear_list(self):
+#         self.list = ""
+#         self.output.config(text=str(self.list))
+#         self.textbox.delete("1.0", "end")
+
+
+# MyGui()
+
+# # Challenge 130
+
+
+# class MyGui:
+#     def __init__(self) -> None:
+
+#         self.root = tk.Tk()
+#         self.list = "\n"
+
+#         self.root.geometry("500x500")
+#         self.root.title("Adding whole numbers to a list")
+
+#         self.label = tk.Label(self.root, text="Enter a number", font=("Arial", 18))
+#         self.label.pack(padx=20, pady=20)
+
+#         self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
+#         self.textbox.pack(padx=20, pady=20)
+
+#         self.button1 = tk.Button(
+#             self.root,
+#             text="Check to verify",
+#             font=("Arial", 14),
+#             command=self.number_check,
+#         )
+#         self.button1.pack(padx=10, pady=10)
+#         self.button2 = tk.Button(
+#             self.root, text="Clear List", font=("Arial", 14), command=self.clear_list
+#         )
+#         self.button2.pack(padx=10, pady=10)
+
+#         self.button3 = tk.Button(
+#             self.root,
+#             text="Save list to file.",
+#             font=("Arial", 14),
+#             command=self.add_to_file,
+#         )
+#         self.button3.pack(padx=10, pady=10)
+
+#         self.output = tk.Label(self.root, text=str(self.list), font=("Arial", 24))
+#         self.output.pack(padx=25, pady=25)
+
+#         self.root.mainloop()
+
+#     def number_check(self):
+#         num = self.textbox.get("1.0", "end-1c")
+#         if num.isdigit():
+#             num = str(num)
+#             self.list += num + "\n"
+#             self.output.config(text=str(self.list))
+#             self.textbox.delete("1.0", "end")
+#         else:
+#             self.textbox.delete("1.0", "end")
+
+#     def clear_list(self):
+#         self.list = ""
+#         self.output.config(text=str(self.list))
+#         self.textbox.delete("1.0", "end")
+
+#     def add_to_file(self):
+#         file = open("List.csv", "a")
+#         text_to_file = self.list
+#         file.write(text_to_file)
+#         file.close()
+
+
+# MyGui()
+
+# Challenge 131
 
 
 class MyGui:
     def __init__(self) -> None:
-
         self.root = tk.Tk()
+
         self.list = "\n"
 
-        self.root.geometry("500x500")
-        self.root.title("Adding whole numbers to a list")
+        self.root.geometry("600x800")
+        self.root.title("Creating list of people and ages.")
 
-        self.label = tk.Label(self.root, text="Enter a number", font=("Arial", 18))
-        self.label.pack(padx=20, pady=20)
+        self.label1 = tk.Label(
+            self.root, text="Please enter a name:", font=("Arial", 14)
+        )
+        self.label1.pack(padx=5, pady=5)
 
-        self.textbox = tk.Text(self.root, height=1, font=("Arial", 14))
-        self.textbox.pack(padx=20, pady=20)
+        self.namebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
+        self.namebox.pack(padx=5, pady=5)
 
-        self.button1 = tk.Button(
+        self.label2 = tk.Label(
+            self.root, text="Please enter an Age:", font=("Arial", 14)
+        )
+        self.label2.pack(padx=5, pady=5)
+
+        self.agebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
+        self.agebox.pack(padx=5, pady=5)
+
+        self.button = tk.Button(
             self.root,
-            text="Check to verify",
-            font=("Arial", 14),
-            command=self.number_check,
+            text="Save entries to file.",
+            font=("Arial", 16),
+            command=self.save_to_file,
         )
-        self.button1.pack(padx=10, pady=10)
-        self.button2 = tk.Button(
-            self.root, text="Clear List", font=("Arial", 14), command=self.clear_list
-        )
-        self.button2.pack(padx=10, pady=10)
-
-        self.output = tk.Label(self.root, text=str(self.list), font=("Arial", 24))
-        self.output.pack(padx=25, pady=25)
+        self.button.pack(padx=25, pady=25)
 
         self.root.mainloop()
 
-    def number_check(self):
-        num = self.textbox.get("1.0", "end-1c")
-        if num.isdigit():
-            num = str(num)
-            self.list += num + "\n"
-            self.output.config(text=str(self.list))
-            self.textbox.delete("1.0", "end")
-        else:
-            self.textbox.delete("1.0", "end")
-
-    def clear_list(self):
-        self.list = ""
-        self.output.config(text=str(self.list))
-        self.textbox.delete("1.0", "end")
+    def save_to_file(self):
+        agelist = self.agebox.get()
+        namelist = self.namebox.get()
+        self.list = namelist + "," + agelist + "\n"
+        file = open("Age/Name.csv", "a")
+        file.write()
+        file.close()
 
 
 MyGui()
