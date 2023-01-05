@@ -398,72 +398,72 @@ import csv
 
 # MyGui()
 
-# Challenge 132
+# # Challenge 132
 
 
-class MyGui:
-    def __init__(self) -> None:
-        self.root = tk.Tk()
+# class MyGui:
+#     def __init__(self) -> None:
+#         self.root = tk.Tk()
 
-        self.list = ""
+#         self.list = ""
 
-        self.root.geometry("600x500")
-        self.root.title("Creating list of people and ages.")
+#         self.root.geometry("600x500")
+#         self.root.title("Creating list of people and ages.")
 
-        self.label1 = tk.Label(
-            self.root, text="Please enter a name:", font=("Arial", 14)
-        )
-        self.label1.pack(padx=5, pady=5)
+#         self.label1 = tk.Label(
+#             self.root, text="Please enter a name:", font=("Arial", 14)
+#         )
+#         self.label1.pack(padx=5, pady=5)
 
-        self.namebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
-        self.namebox.pack(padx=5, pady=5)
+#         self.namebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
+#         self.namebox.pack(padx=5, pady=5)
 
-        self.label2 = tk.Label(
-            self.root, text="Please enter an Age:", font=("Arial", 14)
-        )
-        self.label2.pack(padx=5, pady=5)
+#         self.label2 = tk.Label(
+#             self.root, text="Please enter an Age:", font=("Arial", 14)
+#         )
+#         self.label2.pack(padx=5, pady=5)
 
-        self.agebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
-        self.agebox.pack(padx=5, pady=5)
+#         self.agebox = tk.Entry(self.root, font=("Arial", 14), justify="center")
+#         self.agebox.pack(padx=5, pady=5)
 
-        self.label3 = tk.Label(self.root, font=("Arial", 16), text=self.list)
-        self.label3.pack(padx=5, pady=5)
+#         self.label3 = tk.Label(self.root, font=("Arial", 16), text=self.list)
+#         self.label3.pack(padx=5, pady=5)
 
-        self.button1 = tk.Button(
-            self.root,
-            text="Save entries to file.",
-            font=("Arial", 16),
-            command=self.save_to_file,
-        )
-        self.button1.pack(padx=10, pady=10)
+#         self.button1 = tk.Button(
+#             self.root,
+#             text="Save entries to file.",
+#             font=("Arial", 16),
+#             command=self.save_to_file,
+#         )
+#         self.button1.pack(padx=10, pady=10)
 
-        self.button2 = tk.Button(
-            self.root,
-            font=("Arial", 16),
-            text="Display file entries",
-            command=self.display_file,
-        )
-        self.button2.pack(padx=15, pady=15)
+#         self.button2 = tk.Button(
+#             self.root,
+#             font=("Arial", 16),
+#             text="Display file entries",
+#             command=self.display_file,
+#         )
+#         self.button2.pack(padx=15, pady=15)
 
-        self.listbox = tk.Listbox(self.root)
-        self.listbox.pack(padx=10, pady=10)
+#         self.listbox = tk.Listbox(self.root)
+#         self.listbox.pack(padx=10, pady=10)
 
-        self.root.mainloop()
+#         self.root.mainloop()
 
-    def save_to_file(self):
-        agelist = self.agebox.get()
-        namelist = self.namebox.get()
-        self.list = namelist + "," + agelist + "\n"
-        file = open("Age-Name.csv", "a")
-        file.write(self.list)
-        file.close()
+#     def save_to_file(self):
+#         agelist = self.agebox.get()
+#         namelist = self.namebox.get()
+#         self.list = namelist + "," + agelist + "\n"
+#         file = open("Age-Name.csv", "a")
+#         file.write(self.list)
+#         file.close()
 
-    def display_file(self):
-        self.listbox.delete(0, "end")
-        with open("Age-Name.csv", "r") as csv_file:
-            reader = csv.reader(csv_file)
-            for row in reader:
-                self.listbox.insert("end", row)
+#     def display_file(self):
+#         self.listbox.delete(0, "end")
+#         with open("Age-Name.csv", "r") as csv_file:
+#             reader = csv.reader(csv_file)
+#             for row in reader:
+#                 self.listbox.insert("end", row)
 
 
-MyGui()
+# MyGui()
