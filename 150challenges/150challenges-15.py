@@ -48,20 +48,64 @@ import random
 
 class MyGUI:
     def __init__(self) -> None:
+
+        num1 = random.randint(10, 50)
+        num2 = random.randint(10, 50)
+        num3 = str(num1)
+        num4 = str(num2)
+        question = num3, "+", num4
+
         def check_answer():
-            pass
+            answer = int(entry_box.get())
+            act_answer = num1 + num2
+            if answer == act_answer:
+                image_label.config(image=correct_image)
+            else:
+                image_label.config(image=incorrect_image)
 
         def next_question():
-            pass
+            num1 = random.randint(10, 50)
+            num2 = random.randint(10, 50)
+            num3 = str(num1)
+            num4 = str(num2)
+            question = num3, "+", num4
+            question_label.config(text=question)
+            image_label.config(image="")
 
         self.root = tk.Tk()
 
         self.root.title("Maths questions")
-        self.root.geometry("800x600")
+        self.root.geometry("800x900")
 
-        correct_image = ImageTk.PhotoImage(Image.open("#"))
-        incorrect_image = ImageTk.PhotoImage(Image.open("#"))
-        image_label = tk.Label(self.root, image="#", justify="center")
+        correct_image = ImageTk.PhotoImage(Image.open("correct.jpg"))
+        incorrect_image = ImageTk.PhotoImage(Image.open("incorrect.jpg"))
+        image_label = tk.Label(self.root, justify="center")
+        image_label.pack()
+
+        question_label = tk.Label(self.root, text=question, font=("Arial", 16))
+        question_label.pack(padx=5, pady=5)
+
+        entry_label = tk.Label(
+            font=("Arial", 16), text="Please enter the correct answer."
+        )
+        entry_label.pack(padx=5, pady=5)
+
+        entry_box = tk.Entry(
+            self.root, textvariable="Enter the correct answer", font=("Arial", 18)
+        )
+        entry_box.pack()
+
+        button_check = tk.Button(
+            text="Check Answer", command=check_answer, font=("Arial", 14)
+        )
+        button_check.pack()
+
+        button_next = tk.Button(
+            text="Next question", command=next_question, font=("Arial", 14)
+        )
+        button_next.pack()
+
+        self.root.mainloop()
 
 
 MyGUI()
