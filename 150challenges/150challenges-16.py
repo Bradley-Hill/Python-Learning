@@ -200,23 +200,39 @@ import sqlite3
 # # Close the connection
 # conn.close()
 
-# Challenge 142
+# # Challenge 142
 
-conn = sqlite3.connect("BookInfo.db")
-c = conn.cursor()
+# conn = sqlite3.connect("BookInfo.db")
+# c = conn.cursor()
 
-c.execute("SELECT * FROM Authors")
-items = c.fetchall()
-for item in items:
-    print(item)
+# c.execute("SELECT * FROM Authors")
+# items = c.fetchall()
+# for item in items:
+#     print(item)
 
-place_choice = input("Please enter a place of birth from the list: ")
-c.execute(
-    "SELECT Books.Title, Books.Date, Books.Author FROM Books,Authors WHERE Authors.Name = Books.Author AND authors.Place=?",
-    (place_choice,),
-)
+# place_choice = input("Please enter a place of birth from the list: ")
+# c.execute(
+#     "SELECT Books.Title, Books.Date, Books.Author FROM Books,Authors WHERE Authors.Name = Books.Author AND authors.Place=?",
+#     (place_choice,),
+# )
 
-items2 = c.fetchall()
-for row in items2:
-    print(row)
-conn.commit()
+# items2 = c.fetchall()
+# for row in items2:
+#     print(row)
+# conn.commit()
+
+# # Challenge 143
+
+# conn = sqlite3.connect("BookInfo.db")
+# c = conn.cursor()
+
+# select_year = int(input("Enter a year: "))
+
+# c.execute(
+#     """SELECT Books.Title, Books.Date,Books.Author FROM Books WHERE Date>? ORDER BY Date""",
+#     [select_year],
+# )
+# for x in c.fetchall():
+#     print(x)
+
+# Challenge 144
