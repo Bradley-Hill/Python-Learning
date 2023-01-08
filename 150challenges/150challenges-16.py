@@ -211,14 +211,12 @@ for item in items:
     print(item)
 
 place_choice = input("Please enter a place of birth from the list: ")
-c.execute("SELECT * FROM Authors WHERE Place = ?", (place_choice,))
+c.execute(
+    "SELECT Books.Title, Books.Date, Books.Author FROM Books,Authors WHERE Authors.Name = Books.Author AND authors.Place=?",
+    (place_choice,),
+)
 
 items2 = c.fetchall()
 for row in items2:
     print(row)
-    name = row[0]
-    c.execute("SELECT * FROM Books WHERE Author = ?", (name,))
-    end_results = c.fetchall()
-for x in end_results:
-    print(x)
 conn.commit()
