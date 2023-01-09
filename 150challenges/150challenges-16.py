@@ -1,10 +1,12 @@
 import sqlite3
+import tkinter as tk
 
 # # Challenge 139
 # conn = sqlite3.connect("PhoneBook.db")
 
 # # Create a cursor
 # c = conn.cursor()
+
 # # Create a Table
 # # c.execute(
 # #     """CREATE TABLE phonebook (
@@ -14,12 +16,12 @@ import sqlite3
 # #     phone_number integer
 # # )"""
 # # )
+
 # # Same code but harder to read all on one line.
 # # c.execute("CREATE TABLE phonebook (id INTEGER,first_name TEXT,second_name TEXT,phone_number INTEGER)")
 
 # # Single item entry to database
 # # c.execute("INSERT INTO phonebook VALUES ('2','Karen','Phillips','01954 295773')")
-
 
 # # Commit many items into database at same time
 # # many_entries = [
@@ -235,20 +237,62 @@ import sqlite3
 # for x in c.fetchall():
 #     print(x)
 
-# Challenge 144
+# # Challenge 144
 
-conn = sqlite3.connect("BookInfo.db")
-c = conn.cursor()
+# conn = sqlite3.connect("BookInfo.db")
+# c = conn.cursor()
 
-c.execute("SELECT * FROM Authors")
-items = c.fetchall()
-for item in items:
-    print(item)
-author_name = input("Please choose an author from the database: ")
-c.execute("SELECT * FROM Books WHERE Author = ?", (author_name,))
-results = c.fetchall()
-with open("results.txt", "w") as file:
-    for row in results:
-        file.write(
-            str(row[0]) + " - " + row[1] + " - " + row[2] + " - " + str(row[3]) + "\n"
-        )
+# c.execute("SELECT * FROM Authors")
+# items = c.fetchall()
+# for item in items:
+#     print(item)
+# author_name = input("Please choose an author from the database: ")
+# c.execute("SELECT * FROM Books WHERE Author = ?", (author_name,))
+# results = c.fetchall()
+# with open("results.txt", "w") as file:
+#     for row in results:
+#         file.write(
+#             str(row[0]) + " - " + row[1] + " - " + row[2] + " - " + str(row[3]) + "\n"
+#         )
+# Challenge 145
+
+
+class MyGUI:
+    def __init__(self) -> None:
+        def add_entry():
+            conn = sqlite3.connect("TestScores.db")
+            c = conn.cursor()
+            name = student_name.get()
+            grade = student_grade.get()
+            c.execute("INSERT INTO TestScores VALUES (?, ?)", (name, grade))
+            conn.commit()
+
+        def clear():
+            student_grade.delete(0, "end")
+            student_name.delete(0, "end")
+
+        self.root = tk.Tk()
+
+        self.root.title("TestScores")
+        self.root.geometry("400x300")
+
+        name_entry = tk.Label(self.root, text="Enter Student's Name: ")
+        name_entry.grid(row=0, column=0)
+        student_name = tk.Entry(self.root)
+        student_name.grid(row=0, column=1)
+
+        grade_entry = tk.Label(self.root, text="Enter Student's Grade: ")
+        grade_entry.grid(row=1, column=0)
+        student_grade = tk.Entry(self.root)
+        student_grade.grid(row=1, column=1)
+
+        add_button = tk.Button(self.root, text="Add", command=add_entry)
+        add_button.grid(row=2, column=1, sticky="NSEW")
+
+        clear_button = tk.Button(self.root, text="Clear", command=clear)
+        clear_button.grid(row=3, column=1, sticky="NSEW")
+
+        self.root.mainloop()
+
+
+MyGUI()
