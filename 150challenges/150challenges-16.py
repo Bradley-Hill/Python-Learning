@@ -236,3 +236,19 @@ import sqlite3
 #     print(x)
 
 # Challenge 144
+
+conn = sqlite3.connect("BookInfo.db")
+c = conn.cursor()
+
+c.execute("SELECT * FROM Authors")
+items = c.fetchall()
+for item in items:
+    print(item)
+author_name = input("Please choose an author from the database: ")
+c.execute("SELECT * FROM Books WHERE Author = ?", (author_name,))
+results = c.fetchall()
+with open("results.txt", "w") as file:
+    for row in results:
+        file.write(
+            str(row[0]) + " - " + row[1] + " - " + row[2] + " - " + str(row[3]) + "\n"
+        )
