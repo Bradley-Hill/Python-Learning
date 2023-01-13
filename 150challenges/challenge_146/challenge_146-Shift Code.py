@@ -71,13 +71,67 @@ def code_message():
         "z",
         " ",
     ]
-    for x in alphabet:
-        print(x)
+    alphabet = deque(alphabet)
+    alphabet.rotate(user_shift)
+    shifted_alphabet = list(alphabet)
+    user_shift = user_shift * -1
+    alphabet.rotate(user_shift)
+    shifted_alphabet = "".join(shifted_alphabet)
+    alphabet = list(alphabet)
+    alphabet = "".join(alphabet)
+    translate_table = "".maketrans(shifted_alphabet, alphabet)
+    converted_user_message = user_message.translate(translate_table)
+    print(converted_user_message)
     pass
 
 
 def decode_message():
     """Shift the message to new decoded format"""
+    alphabet = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        " ",
+    ]
+    user_message = input("Please enter the message you want decoded: ")
+    user_shift = int(
+        input("Please enter the number you want to use to decode the message: ")
+    )
+    user_shift = user_shift * -1
+    alphabet = deque(alphabet)
+    alphabet.rotate(user_shift)
+    shifted_alphabet = list(alphabet)
+    user_shift = user_shift * -1
+    alphabet.rotate(user_shift)
+    shifted_alphabet = "".join(shifted_alphabet)
+    alphabet = list(alphabet)
+    alphabet = "".join(alphabet)
+    translate_table = "".maketrans(shifted_alphabet, alphabet)
+    converted_user_message = user_message.translate(translate_table)
+    print(converted_user_message)
     pass
 
 
