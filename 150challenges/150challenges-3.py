@@ -5,7 +5,7 @@ for i in range(1, 4):
 # Challenge 36
 name = input("Please enter your name: ")
 number = int(input("Please enter a number: "))
-for i in range(1, (number+1)):
+for i in range(1, (number + 1)):
     print(name)
 # Challenge 37
 name = input("Please enter your name: ")
@@ -20,11 +20,11 @@ for i in range(0, number):
 # Challenge 39
 number = int(input("Please enter a number to see its times table: "))
 for i in range(1, 13):
-    result = i*number
+    result = i * number
     print(i, " x ", number, " = ", result)
 # Challenge 40
 number = int(input("Please enter a number below 50: "))
-for i in range(50, (number-1), -1):
+for i in range(50, (number - 1), -1):
     print(i, " your number is ", number)
 # Challenge 41
 name = input("Please enter your name: ")
@@ -46,10 +46,10 @@ print("The total sum of the numbers you chose is: ", total)
 choice = int(input("Would you like to count in 1)increasing, or 2)decreasing order?: "))
 if choice == 1:
     maxNumber = int(input("Please enter a number: "))
-    for i in range(1, (maxNumber+1)):
+    for i in range(1, (maxNumber + 1)):
         print(i)
 elif choice == 2:
-    lowNumber = int(input("Please enter a number under 20: "))-1
+    lowNumber = int(input("Please enter a number under 20: ")) - 1
     for i in range(20, lowNumber, -1):
         print(i)
 else:

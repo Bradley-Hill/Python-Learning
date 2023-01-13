@@ -1,4 +1,5 @@
 import random
+
 # Challenge 52
 num = random.randint(1, 100)
 print(num)
@@ -7,7 +8,7 @@ fruit = random.choice(["strawberry", "papaya", "kiwi", "apple", "mango"])
 print(fruit)
 # Challenge 54
 compChoice = random.choice(["h", "t"])
-userChoice = (input("Please choose h(eads) or t(ails): "))
+userChoice = input("Please choose h(eads) or t(ails): ")
 if compChoice == userChoice:
     print("You win")
 elif compChoice != userChoice:

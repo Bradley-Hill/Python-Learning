@@ -50,14 +50,24 @@ while userNum < 10 or userNum > 20:
 print("Thank You!")
 # Challenge 51
 num = 10
-print("There are ", num, " green bottles hanging on the wall, ", num, "green bottles hanging on the wall and if one "
-                                                                      "green bottle should accidentally fall.")
+print(
+    "There are ",
+    num,
+    " green bottles hanging on the wall, ",
+    num,
+    "green bottles hanging on the wall and if one "
+    "green bottle should accidentally fall.",
+)
 while num > 0:
     prediction = int(input("How many bottles are left?: "))
     if prediction != (num - 1):
         print("No, try again.")
     elif prediction == (num - 1):
         num = num - 1
-        print("There will be ", num, "green bottles hanging on the wall, and if one green bottle should accidentally "
-                                     "fall...")
+        print(
+            "There will be ",
+            num,
+            "green bottles hanging on the wall, and if one green bottle should accidentally "
+            "fall...",
+        )
 print("There are no green bottles left hanging on the wall.")
