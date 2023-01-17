@@ -14,7 +14,7 @@ while True:
             and if you have the correct colours but not in the correct place.""")
     colours_assigned = random.sample(colours, 4)
     guesses = 0
-    print(colours_assigned)
+
     for i in range(12):
         while True:
             player_attempt = input(
